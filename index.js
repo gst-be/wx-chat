@@ -37,7 +37,7 @@ const LIMIT_AI_IMAGE_COUNT = 5;
 const LIMIT_COUNT_RESPONSE = '对不起，因为ChatGPT调用收费，您的免费使用额度已用完~'
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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@openai.nodeconnect.cf',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -66,6 +66,7 @@ async function getAIResponse(prompt) {
     prompt,
     max_tokens: 1024,
     temperature: 0.1,
+    base_url="https://openai.nodeconnect.cf",
   });
 
   const response = (completion?.data?.choices?.[0].text || 'AI 挂了').trim();
